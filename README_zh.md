@@ -8,10 +8,10 @@
 #include "spm_bm.h"
 
 /* 初始化 对于搜寻频率高的字符串需预先建立坏字符和好后缀表 */
-bm_ctx = BoyerMooreCtxInit(content, content_len);
+BmCtx *bm_ctx = BoyerMooreCtxInit(content, content_len);
 
 /* 对sbuf搜寻是否存在content内容 */
-int found = BoyerMoore(content, content_len, sbuf, sbuflen, bm_ctx);
+uint8_t *found = BoyerMoore(content, content_len, sbuf, sbuflen, bm_ctx);
 if (found != NULL) {
     printf("found");
 }
