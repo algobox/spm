@@ -7,10 +7,10 @@ From [suricata](https://github.com/inliniac/suricata/blob/master/src/util-spm.h)
 #include "spm_bm.h"
 
 /* init your search content */
-bm_ctx = BoyerMooreCtxInit(content, content_len);
+BmCtx *bm_ctx = BoyerMooreCtxInit(content, content_len);
 
 /* search sbuf */
-int found = BoyerMoore(content, content_len, sbuf, sbuflen, bm_ctx);
+uint8_t *found = BoyerMoore(content, content_len, sbuf, sbuflen, bm_ctx);
 if (found != NULL) {
     printf("found");
 }
